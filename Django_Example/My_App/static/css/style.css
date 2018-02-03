@@ -1,0 +1,18 @@
+#blog_header {
+	font-family: 'Parisienne', cursive;
+	font-size: 100px;
+}
+
+#parent{	
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.post {
+	border-bottom: .5px solid black;
+	padding: 10px;
+}
+
+.myjumbotron {
+	background-color: transparent;
+}

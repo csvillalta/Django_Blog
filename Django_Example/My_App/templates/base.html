@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+	<title>{% block title %}My_App{% endblock %}</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	
+	{% block head %}
+	{% endblock head %}
+</head>
+<body {% block bodyattributes %}{% endblock %}>
+
+	{% block content %}
+		<p>You should not see this content!</p>
+	{% endblock %}
+
+	<div class="text-center">{% block footer %}{% endblock %}</div>
+</body>
+</html>

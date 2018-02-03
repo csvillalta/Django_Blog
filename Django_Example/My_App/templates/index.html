@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load static %}
+
+	{% block head %}
+		<link href="https://fonts.googleapis.com/css?family=Parisienne" rel="stylesheet"> 
+		<style type="text/css">
+			.cherrybg {
+				background-image: url("{% static 'images/cherry.png' %}");
+				background-repeat: no-repeat;	
+			}
+		</style>
+	{% endblock %}
+
+	{% block title %}Lorem Ipsum{% endblock %}
+
+	{% block bodyattributes %}class="cherrybg"{% endblock %}
+
+	{% block content %}
+		<div class="jumbotron myjumbotron text-center">
+			<h1 id="blog_header">Lorem Ipsum</h1>
+			<p>A simple blog made in Django</p>
+		</div>
+
+		<div class="container" id="parent">
+			{% if posts %}
+			{% for post in posts %}
+				<div class="post">
+					<h4>{{ post.title }} <i>by {{ post.author }}</i></h4>
+					<p class="text-left">{{ post.text }}</p>
+				</div>
+			{% endfor %}
+			{% endif %}
+		</div>
+
+		<div class="container">
+			<h2 style="padding: 10px;">Submit New Post</h2>
+			<form method='post'>
+				{% csrf_token %}
+				<div class="container">
+					<table>
+						{{ form.as_table }}
+					</table>
+				</div>
+				<input type="submit" class="btn" value="Submit">
+			</form>
+		</div>
+	{% endblock %}
+
+	{% block footer %}<a href="{% url 'about' %}">About</a>{% endblock %}
+</body>
+</html>
